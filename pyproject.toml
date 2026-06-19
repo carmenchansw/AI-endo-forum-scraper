@@ -1,0 +1,10 @@
+[project]
+name = "ai-endo-forum-scraper"
+version = "0.1.0"
+description = "A summariser using hybrid of web scraper + PRAW approaches for endometriosis forums on Reddit."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "praw>=8.0.1",
+    "python-dotenv>=1.2.2",
+]
