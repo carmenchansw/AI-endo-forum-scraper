@@ -1,3 +1,21 @@
-.venv
-.env
+# Virtual environment & tool configs
+.venv/
 pyvenv.cfg
+.lock
+
+# Secrets and environment variables
+.env
+
+# Python caching
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Scrapy runtime files
+.scrapy/
+*.log
+
+# OS metadata
+.DS_Store
+Thumbs.db

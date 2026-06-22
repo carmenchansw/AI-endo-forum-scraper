@@ -7,7 +7,7 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = "endo_forums"
+BOT_NAME = "endo_forums_scraper"
 
 SPIDER_MODULES = ["endo_forums.spiders"]
 NEWSPIDER_MODULE = "endo_forums.spiders"
@@ -16,14 +16,15 @@ ADDONS = {}
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = "endo_forums (+http://www.yourdomain.com)"
+#USER_AGENT = "my_endo_forums_crawler/1.0 (https://github.com/carmenchansw/AI-endo-forum-scraper)
 
-# Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+# Set to bypass Google robots.txt rules because SCRAPERAPI handles throttling and proxy rotation.
+ROBOTSTXT_OBEY = False
 
 # Concurrency and throttling settings
-#CONCURRENT_REQUESTS = 16
-CONCURRENT_REQUESTS_PER_DOMAIN = 1
+# To set broad crawl, settings are adjusted to allow more concurrent requests since enabled by SCRAPERAPI.
+CONCURRENT_REQUESTS = 5
+CONCURRENT_REQUESTS_PER_DOMAIN = 5
 DOWNLOAD_DELAY = 1
 
 # Disable cookies (enabled by default)
