@@ -8,6 +8,6 @@
 from itemadapter import ItemAdapter
 
 
-class EndoForumsPipeline:
+class LemmyEndoscraperPipeline:
     def process_item(self, item, spider):
         return item

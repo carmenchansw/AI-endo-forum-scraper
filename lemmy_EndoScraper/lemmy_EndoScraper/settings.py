@@ -1,4 +1,4 @@
-# Scrapy settings for endo_forums project
+# Scrapy settings for lemmy_EndoScraper project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -7,24 +7,23 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = "endo_forums_scraper"
+BOT_NAME = "lemmy_EndoScraper"
 
-SPIDER_MODULES = ["endo_forums.spiders"]
-NEWSPIDER_MODULE = "endo_forums.spiders"
+SPIDER_MODULES = ["lemmy_EndoScraper.spiders"]
+NEWSPIDER_MODULE = "lemmy_EndoScraper.spiders"
 
 ADDONS = {}
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = "my_endo_forums_crawler/1.0 (https://github.com/carmenchansw/AI-endo-forum-scraper)
+#USER_AGENT = "lemmy_EndoScraper (+http://www.yourdomain.com)"
 
-# Set to bypass Google robots.txt rules because SCRAPERAPI handles throttling and proxy rotation.
+# Obey robots.txt rules
 ROBOTSTXT_OBEY = False
 
 # Concurrency and throttling settings
-# To set broad crawl, settings are adjusted to allow more concurrent requests since enabled by SCRAPERAPI.
-CONCURRENT_REQUESTS = 5
-CONCURRENT_REQUESTS_PER_DOMAIN = 5
+#CONCURRENT_REQUESTS = 16
+CONCURRENT_REQUESTS_PER_DOMAIN = 1
 DOWNLOAD_DELAY = 1
 
 # Disable cookies (enabled by default)
@@ -42,13 +41,13 @@ DOWNLOAD_DELAY = 1
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    "endo_forums.middlewares.EndoForumsSpiderMiddleware": 543,
+#    "lemmy_EndoScraper.middlewares.LemmyEndoscraperSpiderMiddleware": 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    "endo_forums.middlewares.EndoForumsDownloaderMiddleware": 543,
+#    "lemmy_EndoScraper.middlewares.LemmyEndoscraperDownloaderMiddleware": 543,
 #}
 
 # Enable or disable extensions
@@ -60,7 +59,7 @@ DOWNLOAD_DELAY = 1
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 #ITEM_PIPELINES = {
-#    "endo_forums.pipelines.EndoForumsPipeline": 300,
+#    "lemmy_EndoScraper.pipelines.LemmyEndoscraperPipeline": 300,
 #}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
