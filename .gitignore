@@ -6,7 +6,6 @@ pyvenv.cfg
 # Secrets and environment variables
 .env
 .streamlit/secrets.toml
-.streamlit
 
 # Python caching
 __pycache__/
