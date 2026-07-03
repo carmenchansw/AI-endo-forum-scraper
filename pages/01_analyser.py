@@ -41,12 +41,9 @@ if api_key_loaded:
                 Analyze the following raw forum comment text copy-pasted from a discussion thread.
                 
                 Tasks:
-                1. Filter out all website UI noise, timestamps, usernames, and system text.
-                2. Provide a clean summary organized into these strict markdown categories:
-                ### 📈 Core Themes & Sentiments
-                ### 🩻 Shared Symptoms & Pain Points
-                ### 💊 Mentioned Remedies, Medications, or Management Strategies
-                ### 🫂 Common Advice & Support Takeaways
+                1. Filter out all website UI noise, timestamps, usernames, and system text. But do not generate any filtered content as the response.
+                2. Summarize the content in 5 ONLY short bullet points 
+                (maximum 10 words per bullet). Focus strictly on extracted keywords.
 
                 Raw Text Data:
                 ---
@@ -55,17 +52,13 @@ if api_key_loaded:
                 """
                 
                 try:
-                    # Call the Gemini model
                     response = client.models.generate_content(
                         model='gemini-2.5-flash',
                         contents=prompt,
                     )
-                    
-                    st.success("Analysis Complete!")
-                    st.divider()
-                    
-                    # 3. Output the beautifully formatted markdown results to the dashboard
                     st.markdown(response.text)
-                    
                 except Exception as e:
-                    st.error(f"An error occurred during processing: {e}")
+                    if "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e):
+                        st.error("🔄 System is currently busy (Rate Limit Reached). Please wait 60 seconds before trying another thread!")
+                    else:
+                        st.error(f"An unexpected error occurred: {e}")
